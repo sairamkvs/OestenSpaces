@@ -15,7 +15,7 @@ export default function Home() {
           
           <div className="flex justify-between items-center">
 
-            <div className="text-xl tracking-wider text-black">
+            <div className="text-xl tracking-wider text-White-900">
               <span className="font-bold">Oesten</span> <span className="font-light">Spaces</span>
             </div>
 
@@ -39,7 +39,7 @@ export default function Home() {
         {/* Hamburger Menu */}
 <button
   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-  className="lg:hidden text-gray-900 z-50 relative"
+  className="lg:hidden text-gray-900 z-9999 relative"
 >
   {mobileMenuOpen ? (
     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -90,22 +90,22 @@ export default function Home() {
 
             {/* Desktop Menu */}
             <div className="hidden lg:flex gap-10 items-center">
-              <a href="#" className="text-sm text-gray-700 hover:text-gray-900">HOME</a>
-              <a href="#services" className="text-sm text-gray-700 hover:text-gray-900">SERVICES</a>
-              <a href="#portfolio" className="text-sm text-gray-700 hover:text-gray-900">PORTFOLIO</a>
-              <a href="#contact" className="text-sm text-gray-700 hover:text-gray-900">CONTACT US</a>
+              <a href="#" className="text-sm text-white hover:text-gray-900">HOME</a>
+              <a href="#services" className="text-sm text-white hover:text-gray-900">SERVICES</a>
+              <a href="#portfolio" className="text-sm text-white hover:text-gray-900">PORTFOLIO</a>
+              <a href="#contact" className="text-sm text-white hover:text-gray-900">CONTACT US</a>
             </div>
 
             {/* Social Media Menu Icon */}
             <div className="hidden lg:flex gap-4">
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                <FaInstagram size={20} className="text-gray-900 hover:text-pink-600" />
+                <FaInstagram size={20} className="text-white hover:text-pink-600" />
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                <FaLinkedin size={20} className="text-gray-900 hover:text-blue-700" />
+                <FaLinkedin size={20} className="text-white hover:text-blue-700" />
               </a>
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                <FaFacebook size={20} className="text-gray-900 hover:text-blue-600" />
+                <FaFacebook size={20} className="text-white hover:text-blue-600" />
               </a>
             </div>
           </div>
@@ -117,7 +117,7 @@ export default function Home() {
         <div className="absolute inset-0 opacity-100">
           <div
             style={{
-              backgroundImage: "url('/vision-banner.webp')",
+              backgroundImage: "url('/Home.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -182,7 +182,7 @@ export default function Home() {
             {/* <div className="bg-linear-to-br from-amber-200 to-orange-200 h-64 rounded-3xl"></div> */}
             <div
             style={{
-              backgroundImage: "url('/hero-bg.webp')",
+              backgroundImage: "url('/Home.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

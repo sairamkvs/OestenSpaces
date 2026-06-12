@@ -15,6 +15,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Oesten Spaces - Luxury Interior Design",
   description: "Crafting timeless luxury interiors. Experience thoughtfully designed spaces that reflect your lifestyle. 120+ projects, 90+ happy clients.",
+  // viewport: {
+  //   width: "device-width",
+  //   initialScale: 1,
+  // },
 };
 
 export default function RootLayout({
