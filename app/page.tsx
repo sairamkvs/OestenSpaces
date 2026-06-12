@@ -1,18 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa";
 
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed w-full top-0 z-50 bg-transparent border-b border-gray-200">
+      {/* <nav className="fixed w-full top-0 z-50 bg-transparent border-b border-gray-200" opacity-30> */}
+        {/* <nav className="fixed w-full top-0 z-50 bg-white  shadow-md border-b border-gray-200"> */}
+        <nav
+  className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+    scrolled
+      ? "bg-black shadow-md border-b border-gray-200"
+      : "bg-transparent"
+  }`}
+>
         <div className="max-w-7xl mx-auto px-6 py-4">
-          
+
           <div className="flex justify-between items-center">
 
             <div className="text-xl tracking-wider text-White-900">
@@ -36,64 +53,68 @@ export default function Home() {
                 </svg>
               )}
             </button> */}
-        {/* Hamburger Menu */}
-<button
-  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-  className="lg:hidden text-gray-900 z-9999 relative"
->
-  {mobileMenuOpen ? (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-    </svg>
-  ) : (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-    </svg>
-  )}
-</button>
+            {/* Hamburger Menu */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden text-gray-900 z-9999 relative"
+            >
+              {mobileMenuOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
 
-{/* Mobile Menu */}
-<meta name="viewport" content="width=
--device-width, initial-scale=1.0" />
-<div
-  className={`lg:hidden fixed inset-0 bg-transparent backdrop-blur-md flex flex-col items-center justify-center space-y-8 transition-all duration-500 ${
-    mobileMenuOpen ? "opacity-0 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
-  }`}
->
-  <a href="#home" className="text-gray-900 text-lg font-light tracking-widest uppercase border-b border-gray-300 pb-2">
-    Home
-  </a>
+            {/* Mobile Menu */}
+            <meta name="viewport" content="width=-device-width, initial-scale=1.0" />
+            <div
+              className={`lg:hidden fixed inset-0 bg-transparent backdrop-blur-md flex flex-col items-center justify-center space-y-8 transition-all duration-500 ${mobileMenuOpen ? "opacity-0 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
+                }`}
+            >
+              <a href="#home" className="text-gray-900 text-lg font-light tracking-widest uppercase border-b border-gray-300 pb-2">
+                Home
+              </a>
 
-  <a href="#about" className="text-gray-900 text-lg font-light tracking-widest uppercase border-b border-gray-300 pb-2">
-    About Us
-  </a>
-  <a href="#services" className="text-gray-900 text-lg font-light tracking-widest uppercase border-b border-gray-300 pb-2">
-    Services
-  </a>
-  <a href="#contact" className="text-gray-900 text-lg font-light tracking-widest uppercase border-b border-gray-300 pb-2">
-    Contact Us
-  </a>
-  <div className="flex gap-6 pt-4">
-    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-      <FaInstagram size={24} className="text-gray-900 hover:text-pink-600" />
-    </a>
-    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-      <FaLinkedin size={24} className="text-gray-900 hover:text-blue-700" />
-    </a>
-    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-      <FaFacebook size={24} className="text-gray-900 hover:text-blue-600" />
-    </a>
-  </div>
-</div>
+              <a href="#about" className="text-gray-900 text-lg font-light tracking-widest uppercase border-b border-gray-300 pb-2">
+                About Us
+              </a>
+              <a href="#services" className="text-gray-900 text-lg font-light tracking-widest uppercase border-b border-gray-300 pb-2">
+                Services
+              </a>
+              <a href="#contact" className="text-gray-900 text-lg font-light tracking-widest uppercase border-b border-gray-300 pb-2">
+                Contact Us
+              </a>
+              <div className="flex gap-6 pt-4">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                  <FaInstagram size={24} className="text-gray-900 hover:text-pink-600" />
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                  <FaLinkedin size={24} className="text-gray-900 hover:text-blue-700" />
+                </a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                  <FaFacebook size={24} className="text-gray-900 hover:text-blue-600" />
+                </a>
+              </div>
+            </div>
 
-
-
-            {/* Desktop Menu */}
-            <div className="hidden lg:flex gap-10 items-center">
-              <a href="#" className="text-sm text-white hover:text-gray-900">HOME</a>
-              <a href="#services" className="text-sm text-white hover:text-gray-900">SERVICES</a>
-              <a href="#portfolio" className="text-sm text-white hover:text-gray-900">PORTFOLIO</a>
-              <a href="#contact" className="text-sm text-white hover:text-gray-900">CONTACT US</a>
+            {/* Desktop Menu*/}
+            <div className="hidden lg:flex gap-6 items-center">
+              <a href="#" className="text-sm text-white hover:bg-white hover:text-black px-4 py-2 rounded-full transition">
+                HOME
+              </a>
+              <a href="#services" className="text-sm text-white hover:bg-white hover:text-black px-4 py-2 rounded-full transition">
+                SERVICES
+              </a>
+              <a href="#portfolio" className="text-sm text-white hover:bg-white hover:text-black px-4 py-2 rounded-full transition">
+                PORTFOLIO
+              </a>
+              <a href="#contact" className="text-sm text-white hover:bg-white hover:text-black px-4 py-2 rounded-full transition">
+                CONTACT US
+              </a>
             </div>
 
             {/* Social Media Menu Icon */}
@@ -181,13 +202,13 @@ export default function Home() {
             </div>
             {/* <div className="bg-linear-to-br from-amber-200 to-orange-200 h-64 rounded-3xl"></div> */}
             <div
-            style={{
-              backgroundImage: "url('/Home.jpg')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-            className="bg-linear-to-br from-amber-200 to-orange-200 h-64 rounded-3xl"
-          ></div>
+              style={{
+                backgroundImage: "url('/Home.jpg')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+              className="bg-linear-to-br from-amber-200 to-orange-200 h-64 rounded-3xl"
+            ></div>
           </div>
         </div>
       </section>
@@ -217,26 +238,26 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-4">
                 {/* <div className="bg-linear-to-br from-amber-100 to-orange-100 h-32 rounded-2xl"></div> */}
                 <div
-            style={{
-              backgroundImage: "url('/architecture-service.webp')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-            className="bg-linear-to-br from-amber-100 to-orange-100 h-32 rounded-2xl">
+                  style={{
+                    backgroundImage: "url('/architecture-service.webp')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                  className="bg-linear-to-br from-amber-100 to-orange-100 h-32 rounded-2xl">
 
-            </div>
+                </div>
                 {/* <div className="bg-linear-to-br from-amber-100 to-orange-100 h-32 rounded-2xl"></div> */}
                 <div
-            style={{
-              backgroundImage: "url('/feature-banner.webp')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-            className="bg-linear-to-br from-amber-100 to-orange-100 h-32 rounded-2xl">
-              
-            </div>
+                  style={{
+                    backgroundImage: "url('/feature-banner.webp')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                  className="bg-linear-to-br from-amber-100 to-orange-100 h-32 rounded-2xl">
+
+                </div>
               </div>
-              
+
             </div>
           </div>
 
