@@ -19,7 +19,7 @@ export default function Home() {
               <span className="font-bold">Oesten</span> <span className="font-light">Spaces</span>
             </div>
 
-            {/* Hamburger Menu */}
+            {/* Hamburger Menu
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden text-gray-900"
@@ -35,7 +35,58 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               )}
-            </button>
+            </button> */}
+        {/* Hamburger Menu */}
+<button
+  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+  className="lg:hidden text-gray-900 z-50 relative"
+>
+  {mobileMenuOpen ? (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  ) : (
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  )}
+</button>
+
+{/* Mobile Menu */}
+<meta name="viewport" content="width=
+-device-width, initial-scale=1.0" />
+<div
+  className={`lg:hidden fixed inset-0 bg-transparent backdrop-blur-md flex flex-col items-center justify-center space-y-8 transition-all duration-500 ${
+    mobileMenuOpen ? "opacity-0 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
+  }`}
+>
+  <a href="#home" className="text-gray-900 text-lg font-light tracking-widest uppercase border-b border-gray-300 pb-2">
+    Home
+  </a>
+
+  <a href="#about" className="text-gray-900 text-lg font-light tracking-widest uppercase border-b border-gray-300 pb-2">
+    About Us
+  </a>
+  <a href="#services" className="text-gray-900 text-lg font-light tracking-widest uppercase border-b border-gray-300 pb-2">
+    Services
+  </a>
+  <a href="#contact" className="text-gray-900 text-lg font-light tracking-widest uppercase border-b border-gray-300 pb-2">
+    Contact Us
+  </a>
+  <div className="flex gap-6 pt-4">
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+      <FaInstagram size={24} className="text-gray-900 hover:text-pink-600" />
+    </a>
+    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+      <FaLinkedin size={24} className="text-gray-900 hover:text-blue-700" />
+    </a>
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+      <FaFacebook size={24} className="text-gray-900 hover:text-blue-600" />
+    </a>
+  </div>
+</div>
+
+
 
             {/* Desktop Menu */}
             <div className="hidden lg:flex gap-10 items-center">
@@ -66,7 +117,7 @@ export default function Home() {
         <div className="absolute inset-0 opacity-100">
           <div
             style={{
-              backgroundImage: "url('/demo.jpg')",
+              backgroundImage: "url('/vision-banner.webp')",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -75,11 +126,12 @@ export default function Home() {
 
         </div>
 
+
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h1 className="text-6xl md:text-7xl font-light text-black mb-6 leading-tight tracking-tight">
+          <h1 className="text-6xl md:text-7xl font-light text-white mb-6 leading-tight tracking-tight">
             Crafting Timeless Luxury Interiors
           </h1>
-          <p className="text-lg text-black mb-12 max-w-2xl mx-auto leading-relaxed font-light">
+          <p className="text-lg text-white mb-12 max-w-2xl mx-auto leading-relaxed font-light">
             Transforming living spaces into thoughtfully designed, elegant experiences that reflect your unique lifestyle and personality.
           </p>
           <button className="px-10 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition font-medium text-sm tracking-wide">
@@ -127,7 +179,15 @@ export default function Home() {
                 LEARN MORE →
               </a>
             </div>
-            <div className="bg-linear-to-br from-amber-200 to-orange-200 h-64 rounded-3xl"></div>
+            {/* <div className="bg-linear-to-br from-amber-200 to-orange-200 h-64 rounded-3xl"></div> */}
+            <div
+            style={{
+              backgroundImage: "url('/hero-bg.webp')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+            className="bg-linear-to-br from-amber-200 to-orange-200 h-64 rounded-3xl"
+          ></div>
           </div>
         </div>
       </section>
@@ -155,9 +215,28 @@ export default function Home() {
                 </a>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-linear-to-br from-amber-100 to-orange-100 h-32 rounded-2xl"></div>
-                <div className="bg-linear-to-br from-amber-100 to-orange-100 h-32 rounded-2xl"></div>
+                {/* <div className="bg-linear-to-br from-amber-100 to-orange-100 h-32 rounded-2xl"></div> */}
+                <div
+            style={{
+              backgroundImage: "url('/architecture-service.webp')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+            className="bg-linear-to-br from-amber-100 to-orange-100 h-32 rounded-2xl">
+
+            </div>
+                {/* <div className="bg-linear-to-br from-amber-100 to-orange-100 h-32 rounded-2xl"></div> */}
+                <div
+            style={{
+              backgroundImage: "url('/feature-banner.webp')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+            className="bg-linear-to-br from-amber-100 to-orange-100 h-32 rounded-2xl">
+              
+            </div>
               </div>
+              
             </div>
           </div>
 
